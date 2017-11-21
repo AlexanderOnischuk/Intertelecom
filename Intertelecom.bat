@@ -1,27 +1,29 @@
 @echo off
 title Rediall Intertelecom on date: %date% & color 0A
-
-::ßêèé ñàéò ï³íãóâàòè
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::Intertelecom.bat - The automatic connection script for the permanent connection of the program NiceHash for extraction of bitcoin coins (mining).
+::First, in the Network Control Panel, you must rename the connection to Intertelecom, otherwise this script will not be able to connect !!!!
+::This script can be inserted into the Autostart system, and if the modem is permanently connected, the system will automatically connect to the Internet after turning on the PC, modem failure or crash.
+::By default, the script checks every time the presence of the internet, if there is no such thing - it re-combines on its own.
+::::::::::::::::::::::::::::::
+:: ALExorON (c), 08.07.2017 ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::What pinging?
    SET srv=google.com
-
-::×àñ î÷³êóâàííÿ äëÿ ïåðåâ³ðêè ç'ºäíàííÿ â ñåêóíäàõ
+::Wait time for check (in seconds)
    SET wait=60
-
-::Íàçâà ç'ºäíàííÿ â Ïàíåë³ Óïðàâë³ííÿ (ÎÁÎÂ'ßÇÊÎÂÎ!!!)
+::Name in Control Panel (necessarily)!!!
    SET con=Intertelecom
-
-::Ëîã³í (ÿêùî íåîáõ³äíî)
+::Login (if you need)
    SET logn=
-
-::Ïàðîëü (ÿêùî íåîáõ³äíî)
+::Password (if you need)
    SET pas=
-
-::Âåðñ³ÿ
+::Current Version this file
    SET ver=ver.1.1.5
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :start
-::Ïî÷àòêîâà ³íôîðìàö³ÿ òà âèçíà÷åííÿ íàÿâíîñò³ ³íòåðíåòó
+::Initial information and definition of the availability of the Internet
   echo -----------------------------------
   echo Redialling Intertelecom - %ver%
   echo -----------------------------------
@@ -35,14 +37,14 @@ title Rediall Intertelecom on date: %date% & color 0A
   ping %srv% > nul && goto pinging || echo Failure ping =^> Connect... && goto dialing > nul
 
 :redialing
-::Ïðèìóñîâå â³äêëþ÷åííÿ
+::Forced disconnect
   echo ...
   echo %date% %time% - Reconnecting...
   set ARG=0
   rasdial /disconnect > nul
 
 :dialing
-::Ï³äêëþ÷åííÿ ³íòåðíåòó
+::Internet connection
   echo ...
   echo Reconnecting after 3 seconds...
   timeout /T 3 > nul
@@ -52,20 +54,20 @@ title Rediall Intertelecom on date: %date% & color 0A
   echo %date% %time% Connecting N %ARG%.
 
 :pinging
-::Çàòðèìêà ïåðåä ï³íãóâàííÿì ïðè çáî¿ ìåðåæ³
+::Delay before pinging in case of network failure
   echo ...
   echo Waiting %wait% sec...
   echo ...
   timeout /T %wait%
 
 :start_pinging
-::Âèçíà÷åííÿ íàÿâíîñò³ ðîçðèâó çâ'ÿçêó
+::Determining the existence of a communication break
   echo ...
   echo Pinging...
   ping %srv% && goto pinging || echo Failure ping =^> pinging... && goto retry_pinging > nul
 
 :retry_pinging
-::Ïîâòîðíå ï³íãóâàííÿ äëÿ ïåðåï³äêëþ÷åííÿ ÿêùî ðîçðèâ äîñ³ º
+::Repeat ping for reconnection if there is still a gap
   echo ...
   echo again pinging...
   ping %srv% > nul && goto pinging || echo Failure ping =^> Disconnect... && goto redialing > nul
