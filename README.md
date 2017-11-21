@@ -5,10 +5,10 @@ First, in the Network Control Panel, you must rename the connection to Intertele
 
 This script can be inserted into the Autostart system, and if the modem is permanently connected, the system will automatically connect to the Internet after turning on the PC, modem failure or crash.
 
-By default, the script checks every time the presence of the internet, if there is no such thing - it re-combines on its own.
+By default, the script checks every 60 seconds (1 minute) the presence of the internet, if there is no such thing - it re-combines on its own.
 
 
-________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________
 Intertelecom.bat - Скрипт автоматичного підключення інтернету для постійного зв'язку програми NiceHash для добування монет біткоїну (майнінгу).
 
 Спочатку в Панелі управління мережами необхідно перейменувати підключення в Intertelecom, інакше цей скрипт не зможе підключитись!!!!
