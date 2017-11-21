@@ -1,5 +1,5 @@
 @echo off
-title Rediall Intertelecom on date: %date% & color 0A
+title Redialling Intertelecom on date: %date% & color 0A
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::Intertelecom.bat - The automatic connection script for the permanent connection of the program NiceHash for extraction of bitcoin coins (mining).
 ::First, in the Network Control Panel, you must rename the connection to Intertelecom, otherwise this script will not be able to connect !!!!
