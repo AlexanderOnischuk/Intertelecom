@@ -2,8 +2,8 @@
 TITLE Dial Intertelecom on date: %date% & COLOR 0A
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::Intertelecom.bat - The automatic connection script for the permanent connection of the program NiceHash for extraction of bitcoin coins (mining).
-::First in the Network Control Panel you must rename the connection to Intertelecom, otherwise this script will not be able to connect !!!!
-::This script can be inserted into the Autostart system and if the modem is permanently connected the system will automatically connect to the Internet after turning on the PC modem failure or crash.
+::First in the Network Control Panel you must rename the connection to Intertelecom, otherwise this script will not be able to connect!
+::This script can be inserted into the Autostart Windows and if the modem is permanently connected the system will automatically connect to the Internet after turning on the PC modem failure or crash.
 ::By default the script checks every time the presence of the internet, if there is no such thing - it re-combines on its own.
 ::::::::::::::::::::::::::::::
 :: ALExorON (c), 08.07.2017 ::
