@@ -1,7 +1,7 @@
 @echo off
 TITLE Dial Intertelecom on date: %date% & COLOR 0A
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::Intertelecom.bat - The automatic connection script for the permanent connection of the program NiceHash for extraction of bitcoin coins (mining).
+::Intertelecom.bat - Batch-script of automatic connection of the Internet for constant communication via usb-modem, for example, it is necessary for the program NiceHash or another miner for extraction of bitcoin coins (mining).
 ::First in the Network Control Panel you must rename the connection to Intertelecom, otherwise this script will not be able to connect!
 ::This script can be inserted into the Autostart Windows and if the modem is permanently connected the system will automatically connect to the Internet after turning on the PC modem failure or crash.
 ::By default the script checks every time the presence of the internet, if there is no such thing - it re-combines on its own.
@@ -12,14 +12,14 @@ TITLE Dial Intertelecom on date: %date% & COLOR 0A
    SET srv=google.com
 ::Wait time for check (in seconds)
    SET wait=60
-::Name in Control Panel (necessarily)!!!
+::Name in Control Panel Windows(necessarily)!!!
    SET con=Intertelecom
 ::Login (if you need)
    SET logn=
 ::Password (if you need)
    SET pas=
 ::Current Version this file
-   SET ver=ver.1.1.5
+   SET ver=ver.1.1.6
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :start
