@@ -52,6 +52,7 @@ TITLE Dial Intertelecom on date: %date% & COLOR 0A
   echo Connect to %con%...
   rasdial "%con%" %logn% %pas% > nul && time /T && echo connected to "%con%" || goto dialing > nul
   echo %date% %time% Connecting N %ARG%.
+  goto start_pinging > nul
 
 :pinging
 ::Delay before pinging in case of network failure
