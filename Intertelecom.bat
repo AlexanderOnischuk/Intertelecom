@@ -1,31 +1,30 @@
 @echo off
 TITLE Dial Intertelecom on date: %date% & COLOR 0A
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::Intertelecom.bat - Batch-script of automatic connection of the Internet for constant communication via usb-modem, for example, it is necessary for the program NiceHash or another miner for extraction of bitcoin coins (mining).
+::Intertelecom.bat - The automatic connection script for the permanent connection of the program NiceHash for extraction of bitcoin coins (mining).
 ::First in the Network Control Panel you must rename the connection to Intertelecom, otherwise this script will not be able to connect!
 ::This script can be inserted into the Autostart Windows and if the modem is permanently connected the system will automatically connect to the Internet after turning on the PC modem failure or crash.
 ::By default the script checks every time the presence of the internet, if there is no such thing - it re-combines on its own.
-::::::::::::::::::::::::::::::
-:: ALExorON (c), 08.07.2017 ::
+:::::::::::::::::::::::::::
+:: ALExorON (c), 08.07.2017
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::Name in Control Panel (necessarily)!!!
+   SET con=Intertelecom
 ::What pinging?
    SET srv=google.com
 ::Wait time for check (in seconds)
    SET wait=60
-::Name in Control Panel Windows(necessarily)!!!
-   SET con=Intertelecom
 ::Login (if you need)
    SET logn=
 ::Password (if you need)
    SET pas=
-::Current Version this file
-   SET ver=ver.1.1.6
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :start
 ::Initial information and definition of the availability of the Internet
   echo -----------------------------------
-  echo Redialling Intertelecom - %ver%
+  echo Redialling Intertelecom - ver.1.1.7
   echo -----------------------------------
   echo Created by ALExorON (c), 08.07.2017
   echo -----------------------------------
@@ -34,7 +33,7 @@ TITLE Dial Intertelecom on date: %date% & COLOR 0A
   echo Current time: %time%
   echo ...
   echo Pinging to %srv%...
-  ping %srv% > nul && goto pinging || echo Failure ping =^> Connect... && goto dialing > nul
+  ping %srv% && goto pinging || echo Failure ping =^> Connect... && goto dialing > nul
 
 :redialing
 ::Forced disconnect
@@ -49,7 +48,6 @@ TITLE Dial Intertelecom on date: %date% & COLOR 0A
   echo Reconnecting after 3 seconds...
   timeout /T 3 > nul
   set /a ARG=ARG+1
-  echo Connect to %con%...
   rasdial "%con%" %logn% %pas% > nul && time /T && echo connected to "%con%" || goto dialing > nul
   echo %date% %time% Connecting N %ARG%.
   goto start_pinging > nul
@@ -63,13 +61,12 @@ TITLE Dial Intertelecom on date: %date% & COLOR 0A
 
 :start_pinging
 ::Determining the existence of a communication break
-  echo ...
+  cls
   echo Pinging...
   ping %srv% && goto pinging || echo Failure ping =^> pinging... && goto retry_pinging > nul
 
 :retry_pinging
 ::Repeat ping for reconnection if there is still a gap
   echo ...
-  echo again pinging...
+  echo Again pinging...
   ping %srv% > nul && goto pinging || echo Failure ping =^> Disconnect... && goto redialing > nul
-  
