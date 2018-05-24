@@ -17,8 +17,8 @@ set "e=echo:"           &:: Other variables for shortly code.
   echo Redialling Intertelecom - ver.1.2.2
   echo Created by ALExorON (c), 08.07.2017
   %e%
-  echo Last version: http://github.com/ALExorON/Intertelecom
-  echo -----------------------------------------------------
+  echo Last version: https://github.com/AlexanderOnischuk/Intertelecom
+  echo ---------------------------------------------------------------
   echo Current time: %time%
   echo Current date: %date%
   %e%
